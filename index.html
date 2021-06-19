@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- CSS -->
+    <link href="style.css" rel="stylesheet">
+    <meta name="robots" content="noindex,follow" />
+
+  </head>
+
+  <body >
+    <main class="container" id="root">
+
+      <!-- Left Column / Headphones Image -->
+      
+      <div class="">
+        
+        <img style="width: 600px;" :src="products.image" alt="">
+        
+      </div>
+
+
+      <!-- Right Column -->
+      <div class="right-column">
+
+        <!-- Product Description -->
+        <div class="product-description">
+          <h4>{{ products.charge }} Tk</h4>
+          <h1>iPhone 12 Pro Max</h1>
+          
+        </div>
+
+        <!-- Product Configuration -->
+        <div class="product-configuration">
+          
+
+          <!-- Product Color -->
+          <div class="product-color">
+            <span>Color</span>
+
+            <div class="color-choose">
+              <div v-for='variation in variations'>
+                  <div v-for='color in variation.Color'>
+
+                    <div v-if='color.value == "Gold_FDEED7"'>
+
+                      <input data-image="Gold" type="radio" id="Gold" name="color" @change="getAllProduct" v-model="combination.Color"  :value="color.id" checked>
+                     
+                      <label for="Gold"><span></span></label>
+                    </div>
+                    <div v-else-if='color.value == "Pacific Blue_314B56"'>
+
+                      <input data-image="blue" type="radio" id="blue" name="color" @change="getAllProduct"  v-model="combination.Color"  :value="color.id">
+                      <label for="blue"><span></span></label>
+                    </div>
+                    <div v-else-if='color.value == "Silver_F1F1EC"'>
+
+                      <input data-image="sliver" type="radio" id="sliver" name="color" @change="getAllProduct"  v-model="combination.Color"  :value="color.id">
+                      <label for="sliver"><span></span></label>
+                    </div>
+                    <div v-else-if='color.value == "Graphite_4A4946"'>
+
+                      <input data-image="Graphite" type="radio" id="Graphite" name="color" @change="getAllProduct"  v-model="combination.Color"  :value="color.id">
+                      <label for="Graphite"><span></span></label>
+                    </div>
+                  </div> 
+
+              
+              </div>
+            
+            </div>
+
+          </div>
+
+          <!-- Cable Configuration -->
+          <div class="cable-config">
+            <span>Storage</span>
+
+            <div class="cable-choose btn-group" v-for='variation in variations'>
+         
+                  <div v-for='Str in variation.Storage'>
+                    <input  type="radio" id="Str.value" name="Str" @change="getAllProduct" v-model='combination.Storage'  :value="Str.id" checked>
+                    
+                    <label for="Str.value"><span>{{ Str.value }}</span></label>
+                  </div>
+              
+            </div>
+
+            
+          </div>
+          <div class="cable-config">
+            <span>Sim</span>
+
+            <div class="cable-choose btn-group" v-for='variation in variations'>
+         
+              <div v-for='Sim in variation.Sim'>
+                <input  type="radio" id="Sim.value" name="Sim" @change="getAllProduct" v-model='combination.Sim'  :value="Sim.id" checked>
+                
+                <label class="flot-right" for="Str.value"><span>{{ Sim.value }}</span></label>
+              </div>
+          
+            </div>
+           
+          </div>
+          <div class="cable-config">
+            <span>Region</span>
+
+            <div class="cable-choose btn-group" v-for='variation in variations'>
+         
+              <div v-for='Region in variation.Region'>
+                <input  type="radio" id="Region.value" name="re" @change="getAllProduct" v-model='combination.Region'  :value="Region.id" checked>
+                
+                <label for="Str.value"><span>{{ Region.value }}</span></label>
+              </div>
+          
+            </div>
+
+            
+          </div>
+          
+        </div>
+
+  
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="script.js" charset="utf-8"></script>
+
+    <script src="js/main.js"></script>
+    <!-- Vue JS Load  -->
+    <script src="Vue_assets/js/vue.js"></script>
+    <script src="Vue_assets/js/axios.min.js"></script>
+    <script src="Vue_assets/js/vue-router.js"></script>
+    <!-- custome script -->
+    <script src="Vue_assets/js/custome_vue.js"></script>
+  </body>
+</html>
